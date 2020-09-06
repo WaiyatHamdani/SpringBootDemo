@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sf="http://www.springframework.org/tags/form">
+<head>
+<meta charset="UTF-8">
+<title>Landing page</title>
+  <link rel="stylesheet" th:href="@{/css/nav.css}">
+</head>
+<body>
+    <div class="nav">
+      <a href="#"><img src="img/logo.JPG" alt="logo"></a>
+      <a href="@{/}">home</a>
+      <a th:href="@{register}">register</a>
+    </div>
+<span th:text=${cookies}></span>
+<h2>
+Index page
+</h2>
+
+<!-- <sf:form action="login" method="post" modelAttribute="user"> -->
+<!-- 	<sf:input type="text" path="username" placeholde="username"/><br> -->
+<!-- 	<sf:input type="password" path="password" placeholde="password"/><br> -->
+<!-- 	<input type="submit" value="login"> -->
+<!-- </sf:form> -->
+
+<form action="search">
+<input type="text" name="searchTerm" placeholder="search term"/>
+<br>
+<input type="submit" value="search"/>
+</form>
+
+<form th:action="@{/login}" method="post" th:object="${user}">
+	<input type="text" th:field="*{username}" placeholder="username"/><br> 
+ 	<input type="password" th:field="*{password}" placeholder="password"/><br> 
+	<input type="submit" value="login">
+</form>
+
+<p th:text="${error}"></p>
+<!-- <form th:action="@{/login}" method="post" "> -->
+<!-- 	<input type="text" name="username" placeholder="username"/><br>  -->
+<!--  	<input type="password" name="password" placeholder="password"/><br>  -->
+<!-- 	<input type="submit" value="login"> -->
+<!-- </form> -->
+
+<br>
+
+<div>
+<a th:href="@{/home(username=any)}">click for any</a>
+</div>
+
+<div th:each="user: ${users}">
+<span th:text="${user.username}"></span>
+<span th:text="${user.password}"></span>
+</div>
+
+</body>
+</html>

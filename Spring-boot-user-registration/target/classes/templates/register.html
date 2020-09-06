@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org" xmlns:sf="http://www.springframework.org/tags/form">
+  <head>
+    <meta charset="utf-8">
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/css/nav.css}">
+    
+  </head>
+  <body>
+   <div class="nav">
+      <a href="#"><img src="img/logo.JPG" alt="logo"></a>
+      <a th:href="@{/}">home</a>
+      <a th:href="@{/register}">register</a>
+    </div>
+    
+<form th:action="@{/registering}">
+<input type="text" name="username" placeholder="username"/>
+<br>
+<input type="password" name="password" placeholder="password"/>
+<br>
+<input type="submit" value="search"/>
+</form>
+    
+  </body>
+</html>
